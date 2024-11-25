@@ -1,0 +1,1 @@
+Algoritmo é um conjunto de instruções ou etapas definidas para resolver um problema ou realizar uma tarefa. Os algoritmos podem ser simples, como uma receita de bolo, ou complexos, como os usados no aprendizado de máquina.

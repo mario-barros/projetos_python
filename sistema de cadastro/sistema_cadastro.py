@@ -57,3 +57,4 @@ while True:
     if opcao == 5:
         print('\nPrograma Encerrado.')
         break
+ 

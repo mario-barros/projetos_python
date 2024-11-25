@@ -1,0 +1,5 @@
+Algoritmo é um conjunto de instruções ou etapas definidas para resolver um problema ou realizar uma tarefa. Os algoritmos podem ser simples, como uma receita de bolo, ou complexos, como os usados no aprendizado de máquina.
+
+Os algoritmos são fundamentais para a programação de computadores, pois permitem que as máquinas processem dados, tomem decisões e realizem ações complexas.
+
+A palavra "algoritmo" deriva do nome do matemático árabe Al-Khowarizmi, do século IX. Os povos antigos já usavam algoritmos para fazer cálculos sem a ajuda de recursos como o ábaco ou os dedos.

@@ -1,0 +1,5 @@
+Testando o programa para ver se está funcionando corretamente.
+Escrevendo um texto para a linha seguinte.
+Adicionando uma terceira linha.
+Adicionando mais uma linha de texto.
+Adicionando mais uma linha.
