@@ -1,0 +1,111 @@
+INICIAR SistemaAcademico
+
+// Estrutura de Dados
+TABELA Estudante { ID, Nome, DataNascimento, Localidade }
+TABELA Professor { ID, Nome, Especialidade, Localidade }
+TABELA Curso { ID, Nome, Descricao }
+TABELA Disciplina { ID, Nome, CursoID, Precedencias }
+TABELA Localidade { ID, Nome, Tipo } // Tipo: Cidade, Estado, País
+TABELA Matricula { ID, EstudanteID, CursoID, DisciplinaID, Data }
+TABELA PlanoCurso { ID, CursoID, DisciplinaID, Semestre }
+TABELA Precedencia { DisciplinaID, PreRequisitoID }
+TABELA Avaliacao { ID, EstudanteID, DisciplinaID, Nota, ProfessorID }
+
+// Funções Principais
+FUNÇÃO CadastroEstudante(nome, dataNascimento, localidade)
+    CRIAR novoEstudante
+    novoEstudante.ID <- GerarID()
+    novoEstudante.Nome <- nome
+    novoEstudante.DataNascimento <- dataNascimento
+    novoEstudante.Localidade <- localidade
+    SALVAR novoEstudante EM Estudante
+FIM_FUNÇÃO
+
+FUNÇÃO CadastroProfessor(nome, especialidade, localidade)
+    CRIAR novoProfessor
+    novoProfessor.ID <- GerarID()
+    novoProfessor.Nome <- nome
+    novoProfessor.Especialidade <- especialidade
+    novoProfessor.Localidade <- localidade
+    SALVAR novoProfessor EM Professor
+FIM_FUNÇÃO
+
+FUNÇÃO CriarCurso(nome, descricao)
+    CRIAR novoCurso
+    novoCurso.ID <- GerarID()
+    novoCurso.Nome <- nome
+    novoCurso.Descricao <- descricao
+    SALVAR novoCurso EM Curso
+FIM_FUNÇÃO
+
+FUNÇÃO CriarDisciplina(nome, cursoID, precedencias)
+    CRIAR novaDisciplina
+    novaDisciplina.ID <- GerarID()
+    novaDisciplina.Nome <- nome
+    novaDisciplina.CursoID <- cursoID
+    novaDisciplina.Precedencias <- precedencias
+    SALVAR novaDisciplina EM Disciplina
+FIM_FUNÇÃO
+
+FUNÇÃO MatricularEstudante(estudanteID, cursoID, disciplinaID)
+    VERIFICAR PrecedenciasValidas(estudanteID, disciplinaID)
+    CRIAR novaMatricula
+    novaMatricula.ID <- GerarID()
+    novaMatricula.EstudanteID <- estudanteID
+    novaMatricula.CursoID <- cursoID
+    novaMatricula.DisciplinaID <- disciplinaID
+    novaMatricula.Data <- ObterDataAtual()
+    SALVAR novaMatricula EM Matricula
+FIM_FUNÇÃO
+
+FUNÇÃO RegistrarAvaliacao(estudanteID, disciplinaID, nota, professorID)
+    CRIAR novaAvaliacao
+    novaAvaliacao.ID <- GerarID()
+    novaAvaliacao.EstudanteID <- estudanteID
+    novaAvaliacao.DisciplinaID <- disciplinaID
+    novaAvaliacao.Nota <- nota
+    novaAvaliacao.ProfessorID <- professorID
+    SALVAR novaAvaliacao EM Avaliacao
+FIM_FUNÇÃO
+
+FUNÇÃO GerarRelatorio(tipo, parametros)
+    SE tipo = "Estudante"
+        RELATORIO <- ConsultarDados(Estudante, parametros)
+    SENÃO SE tipo = "Professor"
+        RELATORIO <- ConsultarDados(Professor, parametros)
+    SENÃO SE tipo = "Curso"
+        RELATORIO <- ConsultarDados(Curso, parametros)
+    // Outros tipos de relatório...
+    RETORNAR RELATORIO
+FIM_FUNÇÃO
+
+// Funções Auxiliares
+FUNÇÃO PrecedenciasValidas(estudanteID, disciplinaID)
+    OBTEM disciplinasConcluidas <- ConsultarHistorico(estudanteID)
+    OBTEM precedencias <- ConsultarPrecedencias(disciplinaID)
+    SE precedencias NÃO ESTIVEREM EM disciplinasConcluidas
+        RETORNAR FALSO
+    SENÃO
+        RETORNAR VERDADEIRO
+FIM_FUNÇÃO
+
+FUNÇÃO ConsultarHistorico(estudanteID)
+    RETORNAR DadosDoEstudante(estudanteID, "Avaliacoes")
+FIM_FUNÇÃO
+
+// Inicialização do Sistema
+INICIAR_MENU
+    ENQUANTO VERDADEIRO
+        EXIBIR "1. Cadastro de Estudante"
+        EXIBIR "2. Cadastro de Professor"
+        EXIBIR "3. Criar Curso"
+        EXIBIR "4. Criar Disciplina"
+        EXIBIR "5. Matricular Estudante"
+        EXIBIR "6. Registrar Avaliação"
+        EXIBIR "7. Gerar Relatório"
+        SELECIONAR opção
+        CHAMAR_FUNÇÃO BASEADO_EM opção
+    FIM_ENQUANTO
+FIM_INICIAR_MENU
+
+FIM SistemaAcademico

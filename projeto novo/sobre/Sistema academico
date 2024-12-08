@@ -1,0 +1,33 @@
+Sistema Acadêmico
+Bem-vindo ao repositório do Sistema Acadêmico, um sistema completo para gerenciar a administração acadêmica de instituições de ensino.
+
+Descrição do Projeto
+O Sistema Acadêmico é uma solução robusta e escalável, projetada para gerenciar estudantes, professores, disciplinas, matrículas e avaliações, além de oferecer suporte a funcionalidades como gestão de precedências e emissão de relatórios.
+
+
+Funcionalidades Principais
+Gestão de Estudantes e Professores: Cadastro e consulta de informações pessoais.
+Gestão de Cursos e Disciplinas: Administração de cursos, disciplinas e planos de ensino.
+Matrículas e Avaliações:
+Matrícula de estudantes em cursos e disciplinas.
+Lançamento e consulta de notas.
+Precedências:
+Controle de disciplinas com pré-requisitos.
+Consulta de disciplinas disponíveis para matrícula.
+Portais Personalizados:
+Estudante: Acesso ao histórico acadêmico e notas.
+Professor: Gerenciamento de turmas e lançamento de avaliações.
+Gestão de Localidades:
+Registro de localidade de origem de estudantes, professores e campi.
+Relatórios: Geração de relatórios acadêmicos e administrativos.
+
+O sistema inclui as seguintes tabelas principais:
+
+Estudante: Gerencia informações dos alunos.
+Curso: Armazena os cursos oferecidos pela instituição.
+Disciplina: Registra as disciplinas disponíveis.
+Localidade: Representa cidades, estados ou países associados a estudantes, professores ou campi.
+Matrícula: Relaciona estudantes a cursos e disciplinas.
+PlanoCurso: Associa disciplinas ao semestre de um curso.
+Precedência: Registra pré-requisitos entre disciplinas.
+Avaliação: Armazena as notas dos estudantes.
