@@ -7,5 +7,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from func_tabelas import estudantes
+from func_tabelas import professor
+from func_tabelas import 
 
 estudantes.tabela_estudantes()
